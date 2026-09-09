@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Warm architectural canvas — refined cream */
+  --background: #f7f4ee;
+  --foreground: #1d1a17;
+  --muted: #6f695f;
+  --faint: #9a9289;
+  --surface: #fbfaf6;
+  --subtle: #ece7de;
+  --line: #ded8cd;
+
+  /* Warm brown architectural accent — restrained, not gold */
+  --accent: #8a6436;
+  --accent-hover: #6f4f26;
+  --accent-soft: #efe6d7;
+
+  /* Inverted (dark) sections — deep charcoal */
+  --inverse-bg: #17130f;
+  --inverse-fg: #f4f0e9;
+  --inverse-muted: #a69e92;
+
+  --shadow-card: 0 1px 2px rgba(23, 20, 18, 0.05), 0 10px 28px rgba(23, 20, 18, 0.06);
+
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+  --font-body: var(--font-body);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-inverse-bg: var(--inverse-bg);
+  --color-inverse-fg: var(--inverse-fg);
+  --color-inverse-muted: var(--inverse-muted);
+  --shadow-card: var(--shadow-card);
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01" on, "cv11" on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--inverse-fg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Editorial metadata label — small technical detail */
+@layer components {
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .eyebrow::before {
+    content: "";
+    height: 1px;
+    width: 2.5rem;
+    background: var(--accent);
+  }
+
+  .eyebrow--flush::before {
+    width: 0;
+  }
+}
+
+@keyframes navfade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
