@@ -13,10 +13,10 @@ export const FEATURED_PROJECT = PROJECTS.find(
 )!;
 
 export const HERO_IMAGE: MediaImage = {
-  src: "https://images.unsplash.com/photo-1773012106774-b052b84a29eb?auto=format&fit=crop&w=1600&h=900&q=80",
-  alt: "Modern apartment building with glass balconies in the evening light",
-  width: 1600,
-  height: 900,
+  src: "https://images.unsplash.com/photo-1766590044402-8d752b59efeb?auto=format&fit=crop&w=2400&h=1350&q=80",
+  alt: "Modern residential building with wavy balconies at sunset, warm golden light",
+  width: 2400,
+  height: 1350,
 };
 
 export const LOCATION = {
